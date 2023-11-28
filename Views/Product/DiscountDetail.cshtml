@@ -1,6 +1,11 @@
 @model IEnumerable<Discount>
 
-<h2 class="mt-3"><i class="fas fa-list-ul"></i> Current Discounts</h2>
+<h2 class="mt-3"><i class="fas fa-list-ul"></i> Current Discounts 
+    @if (User.IsInRole("northwind-employee")) {
+        <a class="btn btn-primary">Add New Discount</a>
+    }
+</h2>
+
 <div class="list-group">
     @foreach (Discount d in Model)
     {

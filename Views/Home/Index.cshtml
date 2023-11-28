@@ -16,26 +16,28 @@
                 @d.Description
             </div>
             <i>Discount expires: @d.EndTime.ToString("MM/dd/yyyy")</i><br />
-            <a href="#" class="code" data-code="@d.Code" data-product="@d.Title"><i class="far fa-hand-point-right"></i> Discount Code</a>
+            <a class="code btn text-primary" data-code="@d.Code" data-product="@d.Title"><i class="far fa-hand-point-right"></i> Discount Code</a>
         </div>
     }
 </div>
 
 <!-- toast -->
 <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
-    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+    <div id="home_toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
         <div class="toast-header">
-        <strong class="mr-auto" id="product-name">Product Name</strong>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+            <strong class="mr-auto" id="home_toast_header">Product Name</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="toast-body">
-            Discount Code: <strong id="code">CODE</strong>
+            Discount Code: <strong id="home_toast_body">CODE</strong>
         </div>
     </div>
 </div>
 
 @section Scripts {
-    <script type="text/javascript" src="~/js/client.js"></script>
+    <script src="../../js/client.js">
+    
+    </script>
 }
