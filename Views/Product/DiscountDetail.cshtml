@@ -4,6 +4,6 @@
 <div class="list-group">
     @foreach (Discount d in Model)
     {
-        <a class="list-group-item list-group-item-action">@d.Title - <i style="opacity:.6;">@d.Description - <button href=#>Edit</button>/<button href=#>Delete</button></i></a> 
+        <a class="list-group-item list-group-item-action">@d.Title - <i style="opacity:.6;">@d.Description - <button class="btn btn-outline-primary" href=#>Edit</button> <button class="btn btn-outline-danger" href=#>Delete</button></i></a> 
     }
 </div>
