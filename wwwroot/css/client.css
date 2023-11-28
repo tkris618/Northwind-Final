@@ -74,3 +74,12 @@ body {
 {
   color: red;
 }
+
+.discontinued {
+    opacity: .5;
+    font-style: italic;
+}
+
+#product_rows tr {
+    cursor: pointer;
+}
