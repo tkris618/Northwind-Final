@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 public class ProductController : Controller
@@ -11,4 +12,9 @@ public class ProductController : Controller
         return View(_dataContext.Categories.OrderBy(c => c.CategoryName));
     }
     public IActionResult DiscountDetail() => View(_dataContext.Discounts.OrderBy(d => d.Title));
+    public IActionResult DeleteDiscount(int id)
+    {
+        _dataContext.DeleteDiscount(_dataContext.Discounts.FirstOrDefault(d => d.DiscountId == id));
+        return RedirectToAction("DiscountDetail");
+    }
 }

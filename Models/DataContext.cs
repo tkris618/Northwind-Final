@@ -28,6 +28,11 @@ public class DataContext : DbContext
         customerToUpdate.Fax = customer.Fax;
         SaveChanges();
     }
+    public void DeleteDiscount(Discount discount)
+    {
+        Remove(discount);
+        SaveChanges();
+    }
     public CartItem AddToCart(CartItemJSON cartItemJSON)
     {
         int CustomerId = Customers.FirstOrDefault(c => c.Email == cartItemJSON.email).CustomerId;

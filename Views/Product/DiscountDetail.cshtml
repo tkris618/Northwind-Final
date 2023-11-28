@@ -4,10 +4,20 @@
 <div class="list-group">
     @foreach (Discount d in Model)
     {
-        <a class="list-group-item list-group-item-action">@d.Title - <i style="opacity:.6;">@d.Description - 
-            @if (User.IsInRole("northwind-employee")) {
-                <button class="btn btn-outline-primary" href=#>Edit</button> <button class="btn btn-outline-danger" href=#>Delete</button>
-            }
-            </i></a> 
+        <div class="list-group-item pb-0">
+            <span class="d-flex w-100 pb-2 justify-content-between">
+                <span>@d.Title - <i style="opacity:.6;">@d.Description</i></span>
+                <span>
+                    @if (User.IsInRole("northwind-employee")) {
+                        <a class="btn btn-outline-primary" href=#>Edit</a> <a class="btn btn-outline-danger" asp-action="DeleteDiscount" asp-route-id="@d.DiscountId">Delete</a>
+                    }
+                </span>
+            </span>
+
+            <span class="d-flex w-100 justify-content-between">
+                <p>Code: @d.Code</p>
+                <small>Expires: @d.EndTime.ToString("MMMM dd, yyyy")</small>
+            </span>
+        </div>
     }
 </div>
