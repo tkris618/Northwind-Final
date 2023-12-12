@@ -14,7 +14,7 @@
                 <span>@d.Title - <i style="opacity:.6;">@d.Description</i></span>
                 <span>
                     @if (User.IsInRole("northwind-employee")) {
-                        <a class="btn btn-outline-primary" href=#>Edit</a> <a class="btn btn-outline-danger" asp-action="DeleteDiscount" asp-route-id="@d.DiscountId">Delete</a>
+                        <a class="btn btn-outline-primary" asp-controller="Product" asp-action="EditDiscount" asp-route-id="@d.DiscountId">Edit</a> <a class="btn btn-outline-danger" asp-action="DeleteDiscount" asp-route-id="@d.DiscountId">Delete</a>
                     }
                 </span>
             </span>
