@@ -17,4 +17,15 @@ public class ProductController : Controller
         _dataContext.DeleteDiscount(_dataContext.Discounts.FirstOrDefault(d => d.DiscountId == id));
         return RedirectToAction("DiscountDetail");
     }
+     [Authorize(Roles = "northwind-employee")]
+    public  IActionResult EditDiscount(int Id) => View(_dataContext.Discounts.FirstOrDefault(d => d.DiscountId == Id));
+  
+  
+  [Authorize(Roles = "northwind-employee"), HttpPost]
+    public IActionResult EditDiscount(Discount discount)
+    {
+      //Edit Discount info
+      _dataContext.EditDiscount(discount);
+      return RedirectToAction("DiscountDetail", "Product");
+    }
 }
