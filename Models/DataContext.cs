@@ -33,6 +33,14 @@ public class DataContext : DbContext
         Remove(discount);
         SaveChanges();
     }
+      public void EditDiscount(Discount discount)
+    {
+        var discountToUpdate = Discounts.FirstOrDefault(d => d.DiscountId == discount.DiscountId);
+        discountToUpdate.Title = discount.Title;
+        discountToUpdate.Description = discount.Description;
+        discountToUpdate.DiscountPercent = discount.DiscountPercent;
+        SaveChanges();
+    }
     public CartItem AddToCart(CartItemJSON cartItemJSON)
     {
         int CustomerId = Customers.FirstOrDefault(c => c.Email == cartItemJSON.email).CustomerId;
